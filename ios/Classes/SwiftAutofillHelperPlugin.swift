@@ -1,3 +1,4 @@
+import Foundation
 import Flutter
 import UIKit
 import Shared
