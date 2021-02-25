@@ -1,7 +1,6 @@
 import Foundation
 import Flutter
 import UIKit
-import Shared
 
 public class SwiftAutofillHelperPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
