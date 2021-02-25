@@ -12,7 +12,7 @@ public class SwiftAutofillHelperPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     if call.method == "saveCredentials" {
       guard let args = call.arguments else {
-        result(FlutterError(code: "-1", message: "No arguments supplied"))
+        result(FlutterError(code: "-1", message: "No arguments supplied", details: "none"))
         return
       }
         
@@ -24,9 +24,9 @@ public class SwiftAutofillHelperPlugin: NSObject, FlutterPlugin {
           fqdn,
           username,
           password,
-          (error) {
+          {(error: CFError!) -> Void in {
             if error != nil {
-              result(FlutterError(code: "-1", message: "Some arguments not supplied"))
+              result(FlutterError(code: "-1", message: "Some arguments not supplied", details: "none"))
               return
             } else {
               result(true)
@@ -35,14 +35,14 @@ public class SwiftAutofillHelperPlugin: NSObject, FlutterPlugin {
           }
         )
       } else {
-        result(FlutterError(code: "-1", message: "Some arguments not supplied"))
+        result(FlutterError(code: "-1", message: "Some arguments not supplied", details: "none"))
         return
       }
 
-      result(FlutterError(code: "-1", message: "Unknown error"))
+      result(FlutterError(code: "-1", message: "Unknown error", details: "none"))
       return
     } else {
-      restult(FlutterMethodNotImplemented)
+      result(FlutterMethodNotImplemented)
     }
   }
 }
