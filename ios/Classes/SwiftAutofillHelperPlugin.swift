@@ -21,9 +21,9 @@ public class SwiftAutofillHelperPlugin: NSObject, FlutterPlugin {
         let username = argsMap["username"] as? String,
         let password = argsMap["password"] as? String {
         SecAddSharedWebCredential(
-          fqdn,
-          username,
-          password,
+          fqdn as CFString,
+          username as CFString,
+          password as CFString,
           {(error: CFError!) -> Void in 
             if error != nil {
               result(FlutterError(code: "-1", message: "Some arguments not supplied", details: "none"))
