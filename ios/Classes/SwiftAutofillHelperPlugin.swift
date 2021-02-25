@@ -24,7 +24,7 @@ public class SwiftAutofillHelperPlugin: NSObject, FlutterPlugin {
           fqdn,
           username,
           password,
-          {(error: CFError!) -> Void in {
+          {(error: CFError!) -> Void in 
             if error != nil {
               result(FlutterError(code: "-1", message: "Some arguments not supplied", details: "none"))
               return
